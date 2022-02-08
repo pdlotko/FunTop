@@ -1,0 +1,26 @@
+
+# Contents below are from MakePOST
+
+
+all: computePersistenceOfFunction compute_PC_approximation_scalar_valued_function       compute_PC_approximation_vector_valued_function
+
+compute_PC_approximation_scalar_valued_function:
+	
+	$(CXX) $(CXXFLAGS) -o compute_PC_approximation_scalar_valued_function compute_PC_approximation_scalar_valued_function.cpp $(LIBPATHS) -lcxsc
+	chmod 700  compute_PC_approximation_scalar_valued_function
+
+compute_PC_approximation_vector_valued_function:
+	
+	$(CXX) $(CXXFLAGS) -o compute_PC_approximation_vector_valued_function compute_PC_approximation_vector_valued_function.cpp $(LIBPATHS) -lcxsc
+	chmod 700  compute_PC_approximation_vector_valued_function
+
+computePersistenceOfFunction: 
+	
+	$(CXX) $(CXXFLAGS) -o computePersistenceOfFunction computePersistenceOfFunction.cpp $(LIBPATHS) -lcxsc
+	chmod 700 computePersistenceOfFunction
+
+clean:
+	## the -f flag should silence warnings when these executables don't exist.
+	rm -f computePersistenceOfFunction
+	rm -f compute_PC_approximation_scalar_valued_function
+	rm -f compute_PC_approximation_vector_valued_function
